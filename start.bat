@@ -1,1 +1,1 @@
-ngrok -config=ngrok.cfg start yzd 
+ngrok -config=ngrok.cfg start fgo 
