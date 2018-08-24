@@ -1,0 +1,41 @@
+openssl req -x509 -new -nodes -key rootCA.key -subj "/CN=ngrok.yzddhr.tk" -days 5000 -out rootCA.pem
+
+nohup ./ngrokd -domain="n.yzddhr.tk" -httpAddr=":80" -httpsAddr=":443" -tunnelAddr=":8888"
+
+openssl req -new -key device.key -subj "/CN=ngrok.yzddhr.tk" -out device.csr
+
+4890bd47-5180-4b1c-9a5d-3ef686543112
+3.35
+./bin/ngrokd加入环境变量
+nohup ./ngrokd -domain="ngrok.yzddhr.tk" -httpAddr=":80" -httpsAddr=":443" -tunnelAddr=":8888" &
+scp root@v.yzddhr.tk:/home/ubuntu/ point.txt
+50936af3-ae1e-4268-92ec-960f9d0a52be
+RJ219784.7z
+magnet:?xt=urn:btih:d316be3a779a5b9baac630f4fdf63ef0
+
+# 使用下面命令生成证书，注意将ngrok.test.com替换为你的域名
+cd /usr/local/ngrok
+openssl genrsa -out rootCA.key 2048
+openssl req -x509 -new -nodes -key rootCA.key -subj "/CN=ngrok.yzddhr.tk" -days 5000 -out rootCA.pem
+openssl genrsa -out device.key 2048
+openssl req -new -key device.key -subj "/CN=ngrok.yzddhr.tk" -out device.csr
+openssl x509 -req -in device.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out device.crt -days 5000
+
+# 将我们生成的证书替换ngrok默认的证书
+cp rootCA.pem assets/client/tls/ngrokroot.crt
+cp device.crt assets/server/tls/snakeoil.crt
+cp device.key assets/server/tls/snakeoil.key
+
+
+程序主端口：2333
+UUID: 10655f31-c3f2-464f-af99-40a4747b7902
+root@ip-172-31-23-135:/var/www/html/downloads# 
+
+
+
+magnet:?xt=urn:btih:2b5c3825ac7a7ed113c41f0f8b85261a27a5a79e
+
+
+CHINESE SOLO TOY
+
+GOOS=windows GOARCH=amd64 make release-client
